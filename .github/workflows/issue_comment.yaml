@@ -1,1 +1,12 @@
+name: Create a comment on new issues
 
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  comment-with-action:
+    runs-on: windows-latest
+    steps:
+      - name: Dump GitHub context
+        run: echo '${{ toJson(github.event) }}' | ConvertFrom-Json
